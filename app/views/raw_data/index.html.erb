@@ -1,0 +1,24 @@
+<h1>Listing raw_data</h1>
+
+<%= link_to 'New Raw datum', new_raw_datum_path %>
+<br /><br />
+
+<table>
+  <tr>
+    <th>Timestamp</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @raw_data.each do |raw_datum| %>
+  <tr>
+    <td><%= raw_datum.timestamp %></td>
+    <td> | <%= raw_datum.status %></td>
+    <td> | <%= link_to 'Show', raw_datum %></td>
+    <td><%= link_to 'Edit', edit_raw_datum_path(raw_datum) %></td>
+    <td><%= link_to 'Destroy', raw_datum, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

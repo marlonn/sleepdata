@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Timestamp:</b>
+  <%= @raw_datum.timestamp %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @raw_datum.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_raw_datum_path(@raw_datum) %> |
+<%= link_to 'Back', raw_data_path %>
