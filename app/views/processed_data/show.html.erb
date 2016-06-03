@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Period label:</b>
+  <%= @processed_datum.period_label %>
+</p>
+
+<p>
+  <b>Begin:</b>
+  <%= @processed_datum.begin %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @processed_datum.end %>
+</p>
+
+
+<%= link_to 'Edit', edit_processed_datum_path(@processed_datum) %> |
+<%= link_to 'Back', processed_data_path %>

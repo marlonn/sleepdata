@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160602193328) do
+ActiveRecord::Schema.define(:version => 20160603154016) do
+
+  create_table "processed_data", :force => true do |t|
+    t.string   "period_label"
+    t.string   "begin"
+    t.string   "end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "raw_data", :force => true do |t|
     t.text     "timestamp"

@@ -1,4 +1,6 @@
 Sleepdata::Application.routes.draw do
+
+  resources :processed_data
   resources :raw_data
 
   # The priority is based upon order of creation:
