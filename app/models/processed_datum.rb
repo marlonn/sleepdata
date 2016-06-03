@@ -4,10 +4,11 @@ class ProcessedDatum < ActiveRecord::Base
   #validates :end,         :presence => true, :length => { :maximum => 40 }
   #validates :period_label, :presence => true, :length => { :maximum => 20 }
 
-  #default_scope :order => 'processed_data.begin DESC'
+  default_scope :order => 'processed_data.begin DESC'
 
 def self.process_raw_data
   i = 0
+
   data[0] = ProcessedDatum.create
   @processed_data = RawDatum.find_each do |raw|
     data[i] = ProcessedDatum.create

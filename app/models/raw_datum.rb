@@ -6,13 +6,13 @@ class RawDatum < ActiveRecord::Base
   default_scope :order => 'raw_data.timestamp DESC'
 
   def self.process_raw_data
-    i = 0
-    RawDatum.find_each do |raw|
-      data[i] = ProcessedDatum.create
-      data[i].period_label = raw.status
-      i += 1
+    data = []
+    RawDatum.find_each(start: 140, batch_size: 30) do |raw|
+      data << ProcessedDatum.create(period_label: raw.status,
+                                           begin: raw.timestamp,
+                                             end: raw.timestamp)
     end
-    return
+    return data
   end
 
 end

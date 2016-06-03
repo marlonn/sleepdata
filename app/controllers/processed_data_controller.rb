@@ -12,10 +12,6 @@ class ProcessedDataController < ApplicationController
     #   @processed_datum.period_label = raw.status
     # end
 
-    respond_to do |format|
-       format.html # index.html.erb
-#   format.xml  { render :xml => @processed_data }
-   end
   end
 
   # GET /processed_data/1
