@@ -5631,3 +5631,31 @@ Scoped order and limit are ignored, it's forced to be batch order and batch size
 ', '2016-05-29 11:30:15', '2016-05-29 11:30:15', '2016-06-03 19:55:11.603592', '2016-06-03 19:55:11.603592')
 Rendered processed_data/index.html.erb within layouts/application (38.4ms)
 Completed 200 OK in 3073ms (Views: 44.1ms | ActiveRecord: 5.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRawDatum Load (0.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 150) ORDER BY "raw_data"."id" ASC LIMIT 1000
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.5ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 150) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRawDatum Load (0.4ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 150) ORDER BY "raw_data"."id" ASC LIMIT 1000
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.5ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 150) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mRawDatum Load (0.5ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 150) ORDER BY "raw_data"."id" ASC LIMIT 1000
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.5ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 150) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+  [1m[35mRawDatum Load (0.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 160 ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mRawDatum Load (0.2ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 165 ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 10 ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mRawDatum Load (0.3ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 100 ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 130 ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mRawDatum Load (0.3ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 150 ORDER BY raw_data.timestamp DESC LIMIT 1[0m

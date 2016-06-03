@@ -7,10 +7,21 @@ class RawDatum < ActiveRecord::Base
 
   def self.process_raw_data
     data = []
+    id = 0
+    id2 = 0
     RawDatum.find_each(start: 140, batch_size: 30) do |raw|
-      data << ProcessedDatum.create(period_label: raw.status,
-                                           begin: raw.timestamp,
-                                             end: raw.timestamp)
+      if raw.status.chomp == "ins Bett gelegt"
+        data[id] = ProcessedDatum.create(period_label: "sleep",
+                                             begin: raw.timestamp,
+                                               end: raw.timestamp)
+        id2 = 1
+      elsif raw.status.chomp == "noch wach" and id2 == 1
+        data[id].begin = raw.timestamp
+      elsif raw.status.chomp == "aufgewacht" and id2 == 1
+        data[id].end   = raw.timestamp
+        id += 1
+        id2 = 0
+      end
     end
     return data
   end
