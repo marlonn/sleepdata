@@ -22,7 +22,7 @@ class RawDatum < ActiveRecord::Base
       elsif raw.status.chomp == "aufgewacht" and can_edit == true
         data[id].end   = raw.timestamp
         id += 1
-        id2 = 0
+        can_edit = false
       end
     end
     data

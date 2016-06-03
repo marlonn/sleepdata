@@ -3,8 +3,12 @@ class ProcessedDataController < ApplicationController
   # GET /processed_data
   # GET /processed_data.xml
   def index
-    #processed_data = ProcessedDatum.all
-    @data = RawDatum.process_raw_data
+    if Time.parse(RawDatum.first.timestamp) < Time.now - 1.day
+      @data = RawDatum.process_raw_data
+    else
+      # not yet implemented:
+      # @data = ProcessedDatum.all
+    end
   end
 
   # GET /processed_data/1
