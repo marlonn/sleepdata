@@ -5659,3 +5659,4 @@ Scoped order and limit are ignored, it's forced to be batch order and batch size
   [1m[36mRawDatum Load (0.3ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 100 ORDER BY raw_data.timestamp DESC LIMIT 1[0m
   [1m[35mRawDatum Load (0.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 130 ORDER BY raw_data.timestamp DESC LIMIT 1
   [1m[36mRawDatum Load (0.3ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 150 ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 150 ORDER BY raw_data.timestamp DESC LIMIT 1
