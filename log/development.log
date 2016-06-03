@@ -5660,3 +5660,27 @@ Scoped order and limit are ignored, it's forced to be batch order and batch size
   [1m[35mRawDatum Load (0.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 130 ORDER BY raw_data.timestamp DESC LIMIT 1
   [1m[36mRawDatum Load (0.3ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 150 ORDER BY raw_data.timestamp DESC LIMIT 1[0m
   [1m[35mRawDatum Load (0.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE "raw_data"."id" = 150 ORDER BY raw_data.timestamp DESC LIMIT 1
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateRawData (20160602192809)
+Migrating to DropTableSleepdata (20160602193328)
+Migrating to CreateProcessedData (20160603154016)
+  [1m[35mSQL (0.4ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("processed_data")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("raw_data")[0m

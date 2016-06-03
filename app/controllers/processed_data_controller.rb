@@ -1,17 +1,10 @@
 class ProcessedDataController < ApplicationController
+
   # GET /processed_data
   # GET /processed_data.xml
   def index
     #processed_data = ProcessedDatum.all
-    #@datum = ProcessedDatum.process_raw_data
-    #@processed_data = RawDatum.all.find_by_id(10).timestamp
-  #  @processed_data = ProcessedDatum.process_raw_data
     @data = RawDatum.process_raw_data
-    #   @processed_datum.begin  = raw.timestamp
-    #   @processed_datum.end    = raw.timestamp
-    #   @processed_datum.period_label = raw.status
-    # end
-
   end
 
   # GET /processed_data/1
