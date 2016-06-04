@@ -13,8 +13,8 @@
 <% @data.each do |processed_datum| %>
   <tr>
     <td><%= processed_datum.period_label %></td>
-    <td> | <%= processed_datum.begin %></td>
-    <td> | <%= processed_datum.end %></td>
+    <td> | <%= processed_datum.begin.to_s[0,16] %></td>
+    <td> | <%= processed_datum.end.to_s[0,16] %></td>
     <td> | <%= link_to 'Show', processed_datum %></td>
     <td><%= link_to 'Edit', edit_processed_datum_path(processed_datum) %></td>
     <td><%= link_to 'Destroy', processed_datum, :confirm => 'Are you sure?', :method => :delete %></td>

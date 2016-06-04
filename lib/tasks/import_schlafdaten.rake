@@ -1,4 +1,10 @@
+# usage: place schlaf.txt (containing data for the raw_data model) in sleepdata's
+# root directory, then issue the command "rake db:import_schlafdaten"
+# refactoring: replace regexp with substring selection for one character, e.g.
+# if line[4] == "|"     -> run benchmark to test if it actually does something!
+
 namespace :db do
+
   desc "import data from schlafdaten.txt"
   task :import_schlafdaten => :environment do
     Rake::Task['db:reset'].invoke
@@ -15,4 +21,5 @@ namespace :db do
       end
     end
   end
+
 end

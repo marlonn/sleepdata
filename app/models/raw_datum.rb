@@ -14,8 +14,8 @@ class RawDatum < ActiveRecord::Base
     RawDatum.find_each do |raw|
       if raw.status.chomp == "ins Bett gelegt"
         data[id] = ProcessedDatum.create(period_label: "sleep",
-                                                begin: raw.timestamp,
-                                                  end: raw.timestamp)
+                                  begin: Time.parse(raw.timestamp) + 30*60,
+                                    end: raw.timestamp)
         can_edit = true
       elsif raw.status.chomp == "noch wach" and can_edit == true
         data[id].begin = Time.parse(raw.timestamp) + 30*60 # 30 min
