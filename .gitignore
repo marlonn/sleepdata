@@ -4,3 +4,4 @@ log/*.log
 tmp/
 schlaf.txt
 log/development.log
+screenshots/
