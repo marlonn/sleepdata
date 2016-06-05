@@ -9,6 +9,8 @@ class RawDatum < ActiveRecord::Base
 
   #  RawDatum.find_each(start: 140, batch_size: 30) do |raw|
   # "start: 140" decreases loading time.
+  # Time.parse(raw.timestamp).to_s - time needs to in same format as values
+  # with added minutes
   def self.process_raw_data
     data = []
     id = 0
@@ -16,17 +18,17 @@ class RawDatum < ActiveRecord::Base
     RawDatum.find_each(start: 130) do |raw|
       if raw.status.chomp == "ins Bett gelegt"
         data[id]     = ProcessedDatum.new(period_label: "laying awake",
-                                  begin: Time.parse(raw.timestamp),
-                                  end: (Time.parse(raw.timestamp) + 30*60))
+                                begin: Time.parse(raw.timestamp).to_s,
+                                  end: (Time.parse(raw.timestamp) + 30*60).to_s)
         data[id + 1] = ProcessedDatum.new(period_label: "sleep",
-                                  begin: Time.parse(raw.timestamp) + 30*60,
-                                  end: Time.parse(raw.timestamp))
+                                begin: (Time.parse(raw.timestamp) + 30*60).to_s,
+                                  end: Time.parse(raw.timestamp).to_s)
         can_edit = true
       elsif raw.status.chomp == "noch wach" and can_edit == true
-        data[id].end        = Time.parse(raw.timestamp) + 30*60
-        data[id + 1].begin  = Time.parse(raw.timestamp) + 30*60
+        data[id].end        = (Time.parse(raw.timestamp) + 30*60).to_s
+        data[id + 1].begin  = (Time.parse(raw.timestamp) + 30*60).to_s
       elsif raw.status.chomp == "aufgewacht" and can_edit == true
-        data[id + 1].end    = Time.parse(raw.timestamp)
+        data[id + 1].end    = Time.parse(raw.timestamp).to_s
         id += 2
         can_edit = false
       end
@@ -34,9 +36,9 @@ class RawDatum < ActiveRecord::Base
     can_edit = false
     RawDatum.find_each(start: 130) do |raw|
       if raw.status.chomp == "aufgewacht"
-        data[id] = ProcessedDatum.new(period_label: "dösen",
-                                  begin: raw.timestamp,
-                                    end: raw.timestamp)
+        data[id] = ProcessedDatum.new(period_label: "laying awake",
+                                             begin: raw.timestamp,
+                                               end: raw.timestamp)
         can_edit = true
       elsif raw.status.chomp == "aufgestanden" and can_edit == true
         data[id].end = raw.timestamp
