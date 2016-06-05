@@ -6,6 +6,10 @@ class ProcessedDatum < ActiveRecord::Base
 
   default_scope :order => 'processed_data.begin DESC'
 
+  def self.wipe_db
+    ProcessedDatum.delete_all
+  end
+
 # == Schema Information
 #
 # Table name: processed_data
