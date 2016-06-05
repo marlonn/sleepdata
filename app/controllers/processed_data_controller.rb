@@ -1,4 +1,5 @@
 class ProcessedDataController < ApplicationController
+  include ActionView::Helpers::NumberHelper
 
   # GET /processed_data
   # GET /processed_data.xml

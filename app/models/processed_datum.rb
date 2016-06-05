@@ -6,6 +6,11 @@ class ProcessedDatum < ActiveRecord::Base
 
   default_scope :order => 'processed_data.begin DESC'
 
+  def duration_in_minutes
+    (Time.parse(self.end) - Time.parse(self.begin)) / 60
+  end
+
+  # this doesnt seem to work.
   def self.wipe_db
     ProcessedDatum.delete_all
   end

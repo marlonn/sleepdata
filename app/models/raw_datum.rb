@@ -20,7 +20,7 @@ class RawDatum < ActiveRecord::Base
         data[id]     = ProcessedDatum.new(period_label: "laying awake",
                                 begin: Time.parse(raw.timestamp).to_s,
                                   end: (Time.parse(raw.timestamp) + 30*60).to_s)
-        data[id + 1] = ProcessedDatum.new(period_label: "sleep",
+        data[id + 1] = ProcessedDatum.new(period_label: "sleeping",
                                 begin: (Time.parse(raw.timestamp) + 30*60).to_s,
                                   end: Time.parse(raw.timestamp).to_s)
         can_edit = true

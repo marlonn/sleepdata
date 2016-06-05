@@ -3,8 +3,10 @@
 <table>
   <tr>
     <th>Period label</th>
+    <th>id</th>
     <th>Begin</th>
     <th>End</th>
+    <th>Duration</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +18,16 @@
     <td> | <%= processed_datum.id %></td>
     <td> | <%= processed_datum.begin.to_s[0,16] %></td>
     <td> | <%= processed_datum.end.to_s[0,16] %></td>
+    <td> | <%= number_with_precision(
+                (processed_datum.duration_in_minutes / 60).to_s,
+                precision: 2)
+            %> hours</td>
     <td> | <%= link_to 'Show', processed_datum %></td>
     <td><%= link_to 'Edit', edit_processed_datum_path(processed_datum) %></td>
-    <td><%= link_to 'Destroy', processed_datum, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', processed_datum,
+                              :confirm => 'Are you sure?',
+                              :method => :delete
+        %></td>
   </tr>
 <% end %>
 </table>
