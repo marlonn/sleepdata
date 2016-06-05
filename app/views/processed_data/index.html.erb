@@ -1,3 +1,6 @@
+<%= render 'mode-form' %>
+
+<% if @mode == "table" %>
 <h1>Listing processed_data</h1>
 
 <table>
@@ -18,7 +21,10 @@
     <td> | <%= processed_datum.id %></td>
     <td> | <%= processed_datum.begin[0,16] %></td>
     <td> | <%= processed_datum.end[0,16] %></td>
-    <td> | <%= number_with_precision(processed_datum.duration_in_minutes / 60,precision: 2) %> hours</td>
+    <td> | <%= number_with_precision(
+                    processed_datum.duration_in_minutes / 60,
+                    precision: 2)
+            %> hours</td>
     <td> | <%= link_to 'Show', processed_datum %></td>
     <td><%= link_to 'Edit', edit_processed_datum_path(processed_datum) %></td>
     <td><%= link_to 'Destroy', processed_datum,
@@ -28,6 +34,11 @@
   </tr>
 <% end %>
 </table>
+
+<% elsif @mode == "bar" %>
+<p>This will be a bar diagram!</p>
+<% end %>
+
 
 <br />
 

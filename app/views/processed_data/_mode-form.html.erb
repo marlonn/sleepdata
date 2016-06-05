@@ -1,0 +1,7 @@
+<div class="rect">
+  <%= form_tag processed_data_path, :method => 'get' do %>
+    Tell me how to present the data:  
+    <%= text_field_tag :mode, params[:mode], :placeholder => "table" %>
+    <%= submit_tag "go" %>
+  <% end %>
+</div>
