@@ -1,10 +1,12 @@
 class ProcessedDataController < ApplicationController
   include ActionView::Helpers::NumberHelper
+  require "json"
 
   def index
     #@data = ProcessedDatum.all
     # @data = RawDatum.process_raw_data
     @mode = params[:mode]
+    @raw = RawDatum.all
     if ProcessedDatum.count == 0
       RawDatum.process_raw_data
       @data = ProcessedDatum.all
