@@ -6,10 +6,12 @@ class ProcessedDataController < ApplicationController
     #@data = ProcessedDatum.all
     #@data = RawDatum.process_raw_data
     if ProcessedDatum.count == 0
-      @data = RawDatum.process_raw_data
+      RawDatum.process_raw_data
+      @data = ProcessedDatum.all
     elsif ProcessedDatum.count != 0
       if Time.parse(ProcessedDatum.first.begin) < (Time.parse(RawDatum.first.timestamp) - 1.day)
-        @data = RawDatum.process_raw_data
+        RawDatum.process_raw_data
+        @data = ProcessedDatum.all
       else
         @data = ProcessedDatum.all
       end

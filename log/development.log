@@ -8410,3 +8410,462 @@ Scoped order and limit are ignored, it's forced to be batch order and batch size
   [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-22 04:19:51', '2016-05-22 02:49:51.000000', '2016-06-05 14:20:06.731972', '2016-06-05 14:20:06.731972')
 Rendered processed_data/index.html.erb within layouts/application (27.9ms)
 Completed 200 OK in 2798ms (Views: 32.0ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:21:53 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mProcessedDatum Load (0.4ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.9ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mProcessedDatum Load (1.0ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 124ms (Views: 42.9ms | ActiveRecord: 2.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (177.8ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:25:06 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "processed_data"
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.9ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:25:06.783243', '2016-06-05 14:25:06.783243')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 02:17:30.000000', '2016-05-29 08:17:55', '2016-06-05 14:25:06.953766', '2016-06-05 14:25:06.953766')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 02:01:45', '2016-05-29 02:17:30.000000', '2016-06-05 14:25:07.063184', '2016-06-05 14:25:07.063184')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 08:52:58', '2016-06-05 14:25:07.198964', '2016-06-05 14:25:07.198964')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-28 00:13:58', '2016-05-27 22:43:58.000000', '2016-06-05 14:25:07.299948', '2016-06-05 14:25:07.299948')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:25:07.426220', '2016-06-05 14:25:07.426220')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 07:48:55', '2016-06-05 14:25:07.544060', '2016-06-05 14:25:07.544060')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 01:12:01', '2016-05-26 23:42:01.000000', '2016-06-05 14:25:07.662198', '2016-06-05 14:25:07.662198')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 00:48:04.000000', '2016-05-26 07:20:11', '2016-06-05 14:25:07.788433', '2016-06-05 14:25:07.788433')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 00:38:59', '2016-05-26 00:48:04.000000', '2016-06-05 14:25:07.922335', '2016-06-05 14:25:07.922335')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:25:08.266742', '2016-06-05 14:25:08.266742')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 01:04:17.000000', '2016-05-25 07:03:41', '2016-06-05 14:25:08.434622', '2016-06-05 14:25:08.434622')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 02:34:17', '2016-05-25 01:04:17.000000', '2016-06-05 14:25:08.577390', '2016-06-05 14:25:08.577390')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 22:51:43.000000', '2016-05-25 02:34:11', '2016-06-05 14:25:08.728563', '2016-06-05 14:25:08.728563')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:21:43', '2016-05-24 22:51:43.000000', '2016-06-05 14:25:08.863148', '2016-06-05 14:25:08.863148')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:25:09.006034', '2016-06-05 14:25:09.006034')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 09:04:51.000000', '2016-05-23 15:24:22', '2016-06-05 14:25:09.158485', '2016-06-05 14:25:09.158485')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 10:34:51', '2016-05-23 09:04:51.000000', '2016-06-05 14:25:09.301325', '2016-06-05 14:25:09.301325')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-22 09:48:18', '2016-05-22 13:54:04', '2016-06-05 14:25:09.444078', '2016-06-05 14:25:09.444078')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-22 02:49:51.000000', '2016-05-22 09:48:13', '2016-06-05 14:25:09.586910', '2016-06-05 14:25:09.586910')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-22 04:19:51', '2016-05-22 02:49:51.000000', '2016-06-05 14:25:09.729827', '2016-06-05 14:25:09.729827')[0m
+Rendered processed_data/index.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 3228ms (Views: 37.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:25:16 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mProcessedDatum Load (0.2ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1
+  [1m[36mRawDatum Load (0.6ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+  [1m[35mProcessedDatum Load (0.7ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC
+Rendered processed_data/index.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 75ms (Views: 31.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:26:37 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mProcessedDatum Load (0.2ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.6ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mProcessedDatum Load (0.7ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 55ms (Views: 28.8ms | ActiveRecord: 1.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (195.8ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:26:46 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "processed_data"
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.9ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:26:46.565090', '2016-06-05 14:26:46.565090')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 02:17:30.000000', '2016-05-29 08:17:55', '2016-06-05 14:26:46.723858', '2016-06-05 14:26:46.723858')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 02:01:45', '2016-05-29 00:31:45.000000', '2016-06-05 14:26:46.850111', '2016-06-05 14:26:46.850111')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 08:52:58', '2016-06-05 14:26:46.967918', '2016-06-05 14:26:46.967918')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-28 00:13:58', '2016-05-27 22:43:58.000000', '2016-06-05 14:26:47.094049', '2016-06-05 14:26:47.094049')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:26:47.212068', '2016-06-05 14:26:47.212068')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 07:48:55', '2016-06-05 14:26:47.363585', '2016-06-05 14:26:47.363585')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 01:12:01', '2016-05-26 23:42:01.000000', '2016-06-05 14:26:47.499438', '2016-06-05 14:26:47.499438')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 00:48:04.000000', '2016-05-26 07:20:11', '2016-06-05 14:26:47.617334', '2016-06-05 14:26:47.617334')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 00:38:59', '2016-05-25 23:08:59.000000', '2016-06-05 14:26:47.718303', '2016-06-05 14:26:47.718303')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:26:47.844568', '2016-06-05 14:26:47.844568')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 01:04:17.000000', '2016-05-25 07:03:41', '2016-06-05 14:26:47.970737', '2016-06-05 14:26:47.970737')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 02:34:17', '2016-05-25 01:04:17.000000', '2016-06-05 14:26:48.312758', '2016-06-05 14:26:48.312758')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 22:51:43.000000', '2016-05-25 02:34:11', '2016-06-05 14:26:48.622867', '2016-06-05 14:26:48.622867')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:21:43', '2016-05-24 22:51:43.000000', '2016-06-05 14:26:48.725372', '2016-06-05 14:26:48.725372')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:26:48.843229', '2016-06-05 14:26:48.843229')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 09:04:51.000000', '2016-05-23 15:24:22', '2016-06-05 14:26:48.961224', '2016-06-05 14:26:48.961224')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 10:34:51', '2016-05-23 09:04:51.000000', '2016-06-05 14:26:49.104049', '2016-06-05 14:26:49.104049')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-22 09:48:18', '2016-05-22 13:54:04', '2016-06-05 14:26:49.246909', '2016-06-05 14:26:49.246909')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-22 02:49:51.000000', '2016-05-22 09:48:13', '2016-06-05 14:26:49.381290', '2016-06-05 14:26:49.381290')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-22 04:19:51', '2016-05-22 02:49:51.000000', '2016-06-05 14:26:49.499177', '2016-06-05 14:26:49.499177')[0m
+Rendered processed_data/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 3171ms (Views: 33.6ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:26:57 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mProcessedDatum Load (0.3ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1
+  [1m[36mRawDatum Load (0.8ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+  [1m[35mProcessedDatum Load (0.9ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC
+Rendered processed_data/index.html.erb within layouts/application (36.7ms)
+Completed 200 OK in 79ms (Views: 42.2ms | ActiveRecord: 2.2ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (159.2ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:29:28 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mRawDatum Load (1.0ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:29:28.679266', '2016-06-05 14:29:28.679266')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 02:17:30.000000', '2016-05-29 08:17:55', '2016-06-05 14:29:28.823506', '2016-06-05 14:29:28.823506')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 02:01:45', '2016-05-29 00:31:45.000000', '2016-06-05 14:29:28.941379', '2016-06-05 14:29:28.941379')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 08:52:58', '2016-06-05 14:29:29.042309', '2016-06-05 14:29:29.042309')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-28 00:13:58', '2016-05-27 22:43:58.000000', '2016-06-05 14:29:29.135123', '2016-06-05 14:29:29.135123')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:29:29.270930', '2016-06-05 14:29:29.270930')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 07:48:55', '2016-06-05 14:29:29.405516', '2016-06-05 14:29:29.405516')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 01:12:01', '2016-05-26 23:42:01.000000', '2016-06-05 14:29:29.531779', '2016-06-05 14:29:29.531779')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 00:48:04.000000', '2016-05-26 07:20:11', '2016-06-05 14:29:29.649645', '2016-06-05 14:29:29.649645')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 00:38:59', '2016-05-25 23:08:59.000000', '2016-06-05 14:29:29.800778', '2016-06-05 14:29:29.800778')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:29:29.935025', '2016-06-05 14:29:29.935025')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 01:04:17.000000', '2016-05-25 07:03:41', '2016-06-05 14:29:30.069821', '2016-06-05 14:29:30.069821')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 02:34:17', '2016-05-25 01:04:17.000000', '2016-06-05 14:29:30.230597', '2016-06-05 14:29:30.230597')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 22:51:43.000000', '2016-05-25 02:34:11', '2016-06-05 14:29:30.381656', '2016-06-05 14:29:30.381656')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:21:43', '2016-05-24 22:51:43.000000', '2016-06-05 14:29:30.516075', '2016-06-05 14:29:30.516075')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:29:30.625574', '2016-06-05 14:29:30.625574')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 09:04:51.000000', '2016-05-23 15:24:22', '2016-06-05 14:29:30.751617', '2016-06-05 14:29:30.751617')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 10:34:51', '2016-05-23 09:04:51.000000', '2016-06-05 14:29:30.869491', '2016-06-05 14:29:30.869491')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-22 09:48:18', '2016-05-22 13:54:04', '2016-06-05 14:29:30.995523', '2016-06-05 14:29:30.995523')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-22 02:49:51.000000', '2016-05-22 09:48:13', '2016-06-05 14:29:31.123037', '2016-06-05 14:29:31.123037')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-22 04:19:51', '2016-05-22 02:49:51.000000', '2016-06-05 14:29:31.249319', '2016-06-05 14:29:31.249319')
+  [1m[36mProcessedDatum Load (0.9ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 2808ms (Views: 36.8ms | ActiveRecord: 8.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (147.2ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:31:11 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "processed_data"
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (1.4ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:31:11.472222', '2016-06-05 14:31:11.472222')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:31:11.624316', '2016-06-05 14:31:11.624316')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:31:11.725508', '2016-06-05 14:31:11.725508')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:31:11.843335', '2016-06-05 14:31:11.843335')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-22 09:48:18', '2016-05-22 13:54:04', '2016-06-05 14:31:11.969475', '2016-06-05 14:31:11.969475')[0m
+  [1m[35mProcessedDatum Load (0.3ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC
+Rendered processed_data/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 681ms (Views: 13.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:31:30 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mProcessedDatum Load (0.2ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.8ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mProcessedDatum Load (0.4ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 91ms (Views: 15.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:31:55 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mProcessedDatum Load (0.2ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1
+  [1m[36mRawDatum Load (0.6ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+  [1m[35mProcessedDatum Load (0.4ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC
+Rendered processed_data/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 40ms (Views: 13.3ms | ActiveRecord: 1.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (134.2ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:32:02 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mRawDatum Load (0.9ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 06:47:58.000000', '2016-05-29 08:17:58', '2016-06-05 14:32:02.490649', '2016-06-05 14:32:02.490649')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 08:17:58', '2016-05-29 06:47:58.000000', '2016-06-05 14:32:02.787696', '2016-06-05 14:32:02.787696')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:32:02.905770', '2016-06-05 14:32:02.905770')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 00:31:45.000000', '2016-05-29 02:01:45', '2016-06-05 14:32:03.032071', '2016-06-05 14:32:03.032071')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 02:01:45', '2016-05-29 00:31:45.000000', '2016-06-05 14:32:03.149901', '2016-06-05 14:32:03.149901')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 00:13:58', '2016-06-05 14:32:03.269237', '2016-06-05 14:32:03.269237')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-28 00:13:58', '2016-05-27 22:43:58.000000', '2016-06-05 14:32:03.387027', '2016-06-05 14:32:03.387027')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:32:03.521655', '2016-06-05 14:32:03.521655')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 01:12:01', '2016-06-05 14:32:03.639627', '2016-06-05 14:32:03.639627')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 01:12:01', '2016-05-26 23:42:01.000000', '2016-06-05 14:32:03.807275', '2016-06-05 14:32:03.807275')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 23:08:59.000000', '2016-05-26 00:38:59', '2016-06-05 14:32:03.950234', '2016-06-05 14:32:03.950234')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 00:38:59', '2016-05-25 23:08:59.000000', '2016-06-05 14:32:04.102742', '2016-06-05 14:32:04.102742')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:32:04.237621', '2016-06-05 14:32:04.237621')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 01:04:17.000000', '2016-05-25 02:34:17', '2016-06-05 14:32:04.363439', '2016-06-05 14:32:04.363439')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 02:34:17', '2016-05-25 01:04:17.000000', '2016-06-05 14:32:04.506466', '2016-06-05 14:32:04.506466')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 22:51:43.000000', '2016-05-25 00:21:43', '2016-06-05 14:32:04.649446', '2016-06-05 14:32:04.649446')[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:21:43', '2016-05-24 22:51:43.000000', '2016-06-05 14:32:04.784042', '2016-06-05 14:32:04.784042')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 02:12:20.000000', '2016-05-24 03:42:20', '2016-06-05 14:32:04.935370', '2016-06-05 14:32:04.935370')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-24 03:42:20', '2016-05-24 02:12:20.000000', '2016-06-05 14:32:05.079491', '2016-06-05 14:32:05.079491')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:32:05.222285', '2016-06-05 14:32:05.222285')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 09:04:51.000000', '2016-05-23 10:34:51', '2016-06-05 14:32:05.390157', '2016-06-05 14:32:05.390157')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 10:34:51', '2016-05-23 09:04:51.000000', '2016-06-05 14:32:05.541324', '2016-06-05 14:32:05.541324')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 03:02:35.000000', '2016-05-23 04:32:35', '2016-06-05 14:32:05.667360', '2016-06-05 14:32:05.667360')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 04:32:35', '2016-05-23 03:02:35.000000', '2016-06-05 14:32:05.810180', '2016-06-05 14:32:05.810180')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-22 09:48:18', '2016-05-22 13:54:04', '2016-06-05 14:32:05.937767', '2016-06-05 14:32:05.937767')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-22 02:49:51.000000', '2016-05-22 04:19:51', '2016-06-05 14:32:06.055546', '2016-06-05 14:32:06.055546')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-22 04:19:51', '2016-05-22 02:49:51.000000', '2016-06-05 14:32:06.181675', '2016-06-05 14:32:06.181675')
+  [1m[36mProcessedDatum Load (1.2ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (64.7ms)
+Completed 200 OK in 3917ms (Views: 70.3ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:36:03 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mProcessedDatum Load (0.2ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1
+Completed 500 Internal Server Error in 14ms
+
+SyntaxError (/home/rynnon/workspace-ruby/sleepdata/app/models/raw_datum.rb:21: syntax error, unexpected tIDENTIFIER, expecting ')'
+        data[id + 1] = ProcessedDatum.new(period_label: "sleep",
+            ^
+/home/rynnon/workspace-ruby/sleepdata/app/models/raw_datum.rb:23: syntax error, unexpected keyword_end, expecting ')'
+                                    end: raw.timestamp)
+                                       ^
+/home/rynnon/workspace-ruby/sleepdata/app/models/raw_datum.rb:23: syntax error, unexpected ')', expecting keyword_end):
+  app/controllers/processed_data_controller.rb:12:in `index'
+
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:36:21 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mProcessedDatum Load (0.2ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.8ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mProcessedDatum Load (1.1ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (66.3ms)
+Completed 200 OK in 103ms (Views: 71.8ms | ActiveRecord: 2.7ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (175.7ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:36:34 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "processed_data"
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.9ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 08:17:58', '2016-05-29 08:17:58', '2016-06-05 14:36:35.012624', '2016-06-05 14:36:35.012624')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 08:17:58', '2016-05-29 08:17:58', '2016-06-05 14:36:35.146359', '2016-06-05 14:36:35.146359')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:36:35.406728', '2016-06-05 14:36:35.406728')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 02:01:45', '2016-05-29 02:01:45', '2016-06-05 14:36:35.740041', '2016-06-05 14:36:35.740041')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 02:01:45', '2016-05-29 02:01:45', '2016-06-05 14:36:35.900032', '2016-06-05 14:36:35.900032')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-28 00:13:58', '2016-05-28 00:13:58', '2016-06-05 14:36:36.001102', '2016-06-05 14:36:36.001102')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-28 00:13:58', '2016-05-28 00:13:58', '2016-06-05 14:36:36.118928', '2016-06-05 14:36:36.118928')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:36:36.245095', '2016-06-05 14:36:36.245095')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 01:12:01', '2016-05-27 01:12:01', '2016-06-05 14:36:36.347590', '2016-06-05 14:36:36.347590')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 01:12:01', '2016-05-27 01:12:01', '2016-06-05 14:36:36.465589', '2016-06-05 14:36:36.465589')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 00:38:59', '2016-05-26 00:38:59', '2016-06-05 14:36:36.591669', '2016-06-05 14:36:36.591669')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 00:38:59', '2016-05-26 00:38:59', '2016-06-05 14:36:36.726194', '2016-06-05 14:36:36.726194')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:36:36.860773', '2016-06-05 14:36:36.860773')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 02:34:17', '2016-05-25 02:34:17', '2016-06-05 14:36:36.986972', '2016-06-05 14:36:36.986972')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 02:34:17', '2016-05-25 02:34:17', '2016-06-05 14:36:37.114464', '2016-06-05 14:36:37.114464')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:21:43', '2016-05-25 00:21:43', '2016-06-05 14:36:37.257360', '2016-06-05 14:36:37.257360')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 00:21:43', '2016-05-25 00:21:43', '2016-06-05 14:36:37.383435', '2016-06-05 14:36:37.383435')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-24 03:42:20', '2016-05-24 03:42:20', '2016-06-05 14:36:37.518128', '2016-06-05 14:36:37.518128')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 03:42:20', '2016-05-24 03:42:20', '2016-06-05 14:36:37.669179', '2016-06-05 14:36:37.669179')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:36:37.803738', '2016-06-05 14:36:37.803738')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 10:34:51', '2016-05-23 10:34:51', '2016-06-05 14:36:37.946612', '2016-06-05 14:36:37.946612')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 10:34:51', '2016-05-23 10:34:51', '2016-06-05 14:36:38.090738', '2016-06-05 14:36:38.090738')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 04:32:35', '2016-05-23 04:32:35', '2016-06-05 14:36:38.233619', '2016-06-05 14:36:38.233619')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 04:32:35', '2016-05-23 04:32:35', '2016-06-05 14:36:38.401570', '2016-06-05 14:36:38.401570')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-22 09:48:18', '2016-05-22 13:54:04', '2016-06-05 14:36:38.519298', '2016-06-05 14:36:38.519298')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-22 04:19:51', '2016-05-22 04:19:51', '2016-06-05 14:36:38.645571', '2016-06-05 14:36:38.645571')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-22 04:19:51', '2016-05-22 04:19:51', '2016-06-05 14:36:38.771801', '2016-06-05 14:36:38.771801')[0m
+  [1m[35mProcessedDatum Load (1.1ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC
+Rendered processed_data/index.html.erb within layouts/application (73.0ms)
+Completed 200 OK in 4031ms (Views: 77.0ms | ActiveRecord: 10.7ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mRawDatum Load (0.8ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.8ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mRawDatum Load (0.7ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:39:06 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "processed_data"
+  [1m[36mProcessedDatum Load (0.3ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC LIMIT 1[0m
+  [1m[35mRawDatum Load (0.6ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+  [1m[36mProcessedDatum Load (0.8ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (46.2ms)
+Completed 200 OK in 77ms (Views: 50.0ms | ActiveRecord: 1.8ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (227.9ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:39:20 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "processed_data"
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.9ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 08:17:58', '2016-05-29 06:17:58.000000', '2016-06-05 14:39:20.588089', '2016-06-05 14:39:20.588089')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 08:17:58', '2016-05-29 06:17:58.000000', '2016-06-05 14:39:20.739191', '2016-06-05 14:39:20.739191')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:39:20.865316', '2016-06-05 14:39:20.865316')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 02:01:45', '2016-05-29 00:01:45.000000', '2016-06-05 14:39:20.967778', '2016-06-05 14:39:20.967778')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 02:01:45', '2016-05-29 00:01:45.000000', '2016-06-05 14:39:21.068895', '2016-06-05 14:39:21.068895')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-28 00:13:58', '2016-05-27 22:13:58.000000', '2016-06-05 14:39:21.169911', '2016-06-05 14:39:21.169911')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-28 00:13:58', '2016-05-27 22:13:58.000000', '2016-06-05 14:39:21.312868', '2016-06-05 14:39:21.312868')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:39:21.439041', '2016-06-05 14:39:21.439041')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 01:12:01', '2016-05-26 23:12:01.000000', '2016-06-05 14:39:21.557057', '2016-06-05 14:39:21.557057')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 01:12:01', '2016-05-26 23:12:01.000000', '2016-06-05 14:39:21.674963', '2016-06-05 14:39:21.674963')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 00:38:59', '2016-05-25 22:38:59.000000', '2016-06-05 14:39:21.794100', '2016-06-05 14:39:21.794100')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 00:38:59', '2016-05-25 22:38:59.000000', '2016-06-05 14:39:21.911976', '2016-06-05 14:39:21.911976')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:39:22.038238', '2016-06-05 14:39:22.038238')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 02:34:17', '2016-05-25 00:34:17.000000', '2016-06-05 14:39:22.156166', '2016-06-05 14:39:22.156166')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 02:34:17', '2016-05-25 00:34:17.000000', '2016-06-05 14:39:22.282493', '2016-06-05 14:39:22.282493')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:21:43', '2016-05-24 22:21:43.000000', '2016-06-05 14:39:22.400218', '2016-06-05 14:39:22.400218')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 00:21:43', '2016-05-24 22:21:43.000000', '2016-06-05 14:39:22.527533', '2016-06-05 14:39:22.527533')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-24 03:42:20', '2016-05-24 01:42:20.000000', '2016-06-05 14:39:22.662004', '2016-06-05 14:39:22.662004')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 03:42:20', '2016-05-24 01:42:20.000000', '2016-06-05 14:39:22.796615', '2016-06-05 14:39:22.796615')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:39:22.914335', '2016-06-05 14:39:22.914335')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 10:34:51', '2016-05-23 08:34:51.000000', '2016-06-05 14:39:23.048997', '2016-06-05 14:39:23.048997')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 10:34:51', '2016-05-23 08:34:51.000000', '2016-06-05 14:39:23.191920', '2016-06-05 14:39:23.191920')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 04:32:35', '2016-05-23 02:32:35.000000', '2016-06-05 14:39:23.318034', '2016-06-05 14:39:23.318034')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 04:32:35', '2016-05-23 02:32:35.000000', '2016-06-05 14:39:23.470506', '2016-06-05 14:39:23.470506')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-22 09:48:18', '2016-05-22 13:54:04', '2016-06-05 14:39:23.621770', '2016-06-05 14:39:23.621770')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-22 04:19:51', '2016-05-22 02:19:51.000000', '2016-06-05 14:39:23.764680', '2016-06-05 14:39:23.764680')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-22 04:19:51', '2016-05-22 02:19:51.000000', '2016-06-05 14:39:23.915860', '2016-06-05 14:39:23.915860')[0m
+  [1m[35mProcessedDatum Load (0.8ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC
+Rendered processed_data/index.html.erb within layouts/application (64.2ms)
+Completed 200 OK in 3578ms (Views: 68.4ms | ActiveRecord: 10.1ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (416.0ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:40:02 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "processed_data"[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mRawDatum Load (1.3ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 120) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 06:17:58.000000', '2016-05-29 06:17:58.000000', '2016-06-05 14:40:02.075425', '2016-06-05 14:40:02.075425')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 06:17:58.000000', '2016-05-29 06:17:58.000000', '2016-06-05 14:40:02.422683', '2016-06-05 14:40:02.422683')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:40:02.667096', '2016-06-05 14:40:02.667096')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 00:01:45.000000', '2016-05-29 00:01:45.000000', '2016-06-05 14:40:02.785274', '2016-06-05 14:40:02.785274')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 00:01:45.000000', '2016-05-29 00:01:45.000000', '2016-06-05 14:40:03.022684', '2016-06-05 14:40:03.022684')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 22:13:58.000000', '2016-05-27 22:13:58.000000', '2016-06-05 14:40:03.283914', '2016-06-05 14:40:03.283914')[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:13:58.000000', '2016-05-27 22:13:58.000000', '2016-06-05 14:40:03.570169', '2016-06-05 14:40:03.570169')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:40:03.891586', '2016-06-05 14:40:03.891586')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 23:12:01.000000', '2016-05-26 23:12:01.000000', '2016-06-05 14:40:04.110762', '2016-06-05 14:40:04.110762')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:12:01.000000', '2016-05-26 23:12:01.000000', '2016-06-05 14:40:04.422291', '2016-06-05 14:40:04.422291')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 22:38:59.000000', '2016-05-25 22:38:59.000000', '2016-06-05 14:40:04.675942', '2016-06-05 14:40:04.675942')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 22:38:59.000000', '2016-05-25 22:38:59.000000', '2016-06-05 14:40:04.911715', '2016-06-05 14:40:04.911715')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:40:05.055035', '2016-06-05 14:40:05.055035')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:34:17.000000', '2016-05-25 00:34:17.000000', '2016-06-05 14:40:05.232020', '2016-06-05 14:40:05.232020')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 00:34:17.000000', '2016-05-25 00:34:17.000000', '2016-06-05 14:40:05.503370', '2016-06-05 14:40:05.503370')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-24 22:21:43.000000', '2016-05-24 22:21:43.000000', '2016-06-05 14:40:05.684197', '2016-06-05 14:40:05.684197')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 22:21:43.000000', '2016-05-24 22:21:43.000000', '2016-06-05 14:40:05.818527', '2016-06-05 14:40:05.818527')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-24 01:42:20.000000', '2016-05-24 01:42:20.000000', '2016-06-05 14:40:06.054595', '2016-06-05 14:40:06.054595')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 01:42:20.000000', '2016-05-24 01:42:20.000000', '2016-06-05 14:40:06.182509', '2016-06-05 14:40:06.182509')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:40:06.418675', '2016-06-05 14:40:06.418675')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 08:34:51.000000', '2016-05-23 08:34:51.000000', '2016-06-05 14:40:06.544908', '2016-06-05 14:40:06.544908')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 08:34:51.000000', '2016-05-23 08:34:51.000000', '2016-06-05 14:40:06.645942', '2016-06-05 14:40:06.645942')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-23 02:32:35.000000', '2016-05-23 02:32:35.000000', '2016-06-05 14:40:06.763854', '2016-06-05 14:40:06.763854')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-23 02:32:35.000000', '2016-05-23 02:32:35.000000', '2016-06-05 14:40:06.891400', '2016-06-05 14:40:06.891400')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-22 09:48:18', '2016-05-22 13:54:04', '2016-06-05 14:40:07.025946', '2016-06-05 14:40:07.025946')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-22 02:19:51.000000', '2016-05-22 02:19:51.000000', '2016-06-05 14:40:07.160369', '2016-06-05 14:40:07.160369')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-22 02:19:51.000000', '2016-05-22 02:19:51.000000', '2016-06-05 14:40:07.286486', '2016-06-05 14:40:07.286486')
+  [1m[36mProcessedDatum Load (1.1ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (77.8ms)
+Completed 200 OK in 5507ms (Views: 83.4ms | ActiveRecord: 11.1ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (204.8ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:41:12 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "processed_data"
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.7ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 130) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 130) ORDER BY "raw_data"."id" ASC LIMIT 1000
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:41:12.278225', '2016-06-05 14:41:12.278225')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 02:17:30.000000', '2016-05-29 08:17:55', '2016-06-05 14:41:12.458098', '2016-06-05 14:41:12.458098')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 00:01:45.000000', '2016-05-29 02:17:30.000000', '2016-06-05 14:41:12.567755', '2016-06-05 14:41:12.567755')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 08:52:58', '2016-06-05 14:41:12.712025', '2016-06-05 14:41:12.712025')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 22:13:58.000000', '2016-05-27 22:43:58.000000', '2016-06-05 14:41:12.838346', '2016-06-05 14:41:12.838346')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:41:12.964520', '2016-06-05 14:41:12.964520')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 07:48:55', '2016-06-05 14:41:13.107317', '2016-06-05 14:41:13.107317')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 23:12:01.000000', '2016-05-26 23:42:01.000000', '2016-06-05 14:41:13.241768', '2016-06-05 14:41:13.241768')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 00:48:04.000000', '2016-05-26 07:20:11', '2016-06-05 14:41:13.359547', '2016-06-05 14:41:13.359547')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 22:38:59.000000', '2016-05-26 00:48:04.000000', '2016-06-05 14:41:13.494179', '2016-06-05 14:41:13.494179')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:41:13.646555', '2016-06-05 14:41:13.646555')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 01:04:17.000000', '2016-05-25 07:03:41', '2016-06-05 14:41:13.797949', '2016-06-05 14:41:13.797949')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:34:17.000000', '2016-05-25 01:04:17.000000', '2016-06-05 14:41:13.940909', '2016-06-05 14:41:13.940909')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 22:51:43.000000', '2016-05-25 02:34:11', '2016-06-05 14:41:14.083740', '2016-06-05 14:41:14.083740')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-24 22:21:43.000000', '2016-05-24 22:51:43.000000', '2016-06-05 14:41:14.226513', '2016-06-05 14:41:14.226513')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:41:14.386155', '2016-06-05 14:41:14.386155')
+  [1m[36mProcessedDatum Load (0.8ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (66.1ms)
+Completed 200 OK in 2367ms (Views: 71.7ms | ActiveRecord: 6.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mAREL (160.9ms)[0m  [1mDELETE FROM "processed_data" WHERE 1=1[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 16:48:52 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "processed_data"
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (1.0ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 130) ORDER BY "raw_data"."id" ASC LIMIT 1000[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 130) ORDER BY "raw_data"."id" ASC LIMIT 1000
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-29 08:17:55', '2016-05-29 11:30:15', '2016-06-05 14:48:52.268974', '2016-06-05 14:48:52.268974')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 02:17:30.000000', '2016-05-29 06:17:55.000000', '2016-06-05 14:48:52.433188', '2016-06-05 14:48:52.433188')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 00:01:45.000000', '2016-05-29 02:17:30.000000', '2016-06-05 14:48:52.534203', '2016-06-05 14:48:52.534203')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 06:52:58.000000', '2016-06-05 14:48:52.651964', '2016-06-05 14:48:52.651964')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 22:13:58.000000', '2016-05-27 22:43:58.000000', '2016-06-05 14:48:52.769885', '2016-06-05 14:48:52.769885')[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-27 07:48:55', '2016-05-27 08:41:03', '2016-06-05 14:48:52.896179', '2016-06-05 14:48:52.896179')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 05:48:55.000000', '2016-06-05 14:48:53.014056', '2016-06-05 14:48:53.014056')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 23:12:01.000000', '2016-05-26 23:42:01.000000', '2016-06-05 14:48:53.123508', '2016-06-05 14:48:53.123508')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 00:48:04.000000', '2016-05-26 05:20:11.000000', '2016-06-05 14:48:53.242582', '2016-06-05 14:48:53.242582')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 22:38:59.000000', '2016-05-26 00:48:04.000000', '2016-06-05 14:48:53.385591', '2016-06-05 14:48:53.385591')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-25 07:03:41', '2016-05-25 07:24:49', '2016-06-05 14:48:53.503311', '2016-06-05 14:48:53.503311')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 01:04:17.000000', '2016-05-25 05:03:41.000000', '2016-06-05 14:48:53.637811', '2016-06-05 14:48:53.637811')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-25 00:34:17.000000', '2016-05-25 01:04:17.000000', '2016-06-05 14:48:53.764062', '2016-06-05 14:48:53.764062')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-24 22:51:43.000000', '2016-05-25 00:34:11.000000', '2016-06-05 14:48:53.890337', '2016-06-05 14:48:53.890337')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-24 22:21:43.000000', '2016-05-24 22:51:43.000000', '2016-06-05 14:48:54.058019', '2016-06-05 14:48:54.058019')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('dösen', '2016-05-24 03:32:22', '2016-05-24 06:08:34', '2016-06-05 14:48:54.185528', '2016-06-05 14:48:54.185528')
+  [1m[36mProcessedDatum Load (0.8ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC[0m
+Rendered processed_data/index.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 2168ms (Views: 70.5ms | ActiveRecord: 6.5ms)

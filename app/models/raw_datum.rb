@@ -13,26 +13,26 @@ class RawDatum < ActiveRecord::Base
     data = []
     id = 0
     can_edit = false
-    RawDatum.find_each(start: 120) do |raw|
+    RawDatum.find_each(start: 130) do |raw|
       if raw.status.chomp == "ins Bett gelegt"
-        data[id] = ProcessedDatum.new(period_label: "laying awake",
-                                  begin: raw.timestamp,
-                                    end: Time.parse(raw.timestamp) + 30*60)
+        data[id]     = ProcessedDatum.new(period_label: "laying awake",
+                                  begin: Time.parse(raw.timestamp),
+                                  end: (Time.parse(raw.timestamp) + 30*60))
         data[id + 1] = ProcessedDatum.new(period_label: "sleep",
                                   begin: Time.parse(raw.timestamp) + 30*60,
-                                    end: raw.timestamp)
+                                  end: Time.parse(raw.timestamp))
         can_edit = true
       elsif raw.status.chomp == "noch wach" and can_edit == true
-        data[id + 1].begin = Time.parse(raw.timestamp) + 30*60 # 30 min
-        data[id].end = data[id + 1].begin
+        data[id].end        = Time.parse(raw.timestamp) + 30*60
+        data[id + 1].begin  = Time.parse(raw.timestamp) + 30*60
       elsif raw.status.chomp == "aufgewacht" and can_edit == true
-        data[id + 1].end   = raw.timestamp
+        data[id + 1].end    = Time.parse(raw.timestamp)
         id += 2
         can_edit = false
       end
     end
     can_edit = false
-    RawDatum.find_each(start: 120) do |raw|
+    RawDatum.find_each(start: 130) do |raw|
       if raw.status.chomp == "aufgewacht"
         data[id] = ProcessedDatum.new(period_label: "dösen",
                                   begin: raw.timestamp,
