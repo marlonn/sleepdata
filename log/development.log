@@ -5689,3 +5689,127 @@ Migrating to CreateProcessedData (20160603154016)
   [1m[36mProcessedDatum Load (0.6ms)[0m  [1mSELECT "processed_data".* FROM "processed_data" WHERE "processed_data"."id" = 5 ORDER BY processed_data.begin DESC LIMIT 1[0m
   [1m[35mProcessedDatum Load (223.0ms)[0m  SELECT "processed_data".* FROM "processed_data" ORDER BY processed_data.begin DESC
   [1m[36mRawDatum Load (5.3ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+
+
+Started GET "/raw_data" for 127.0.0.1 at 2016-06-05 12:53:53 +0200
+  Processing by RawDataController#index as HTML
+  [1m[36mRawDatum Load (15.9ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC[0m
+Rendered raw_data/index.html.erb within layouts/application (203.1ms)
+Completed 200 OK in 245ms (Views: 219.5ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 12:54:44 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mRawDatum Load (0.8ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRawDatum Load (0.5ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30
+  [1m[36mAREL (24.0ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 23:08:59.000000', '2016-05-26 00:38:59', '2016-06-05 10:54:44.910994', '2016-06-05 10:54:44.910994')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 01:12:01', '2016-06-05 10:54:45.205660', '2016-06-05 10:54:45.205660')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 00:13:58', '2016-06-05 10:54:45.381157', '2016-06-05 10:54:45.381157')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 00:31:45.000000', '2016-05-29 02:01:45', '2016-06-05 10:54:45.523989', '2016-06-05 10:54:45.523989')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 06:47:58.000000', '2016-05-29 08:17:58', '2016-06-05 10:54:45.701536', '2016-06-05 10:54:45.701536')[0m
+Rendered processed_data/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 983ms (Views: 13.4ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 14:13:48 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mRawDatum Load (0.7ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.5ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 23:08:59.000000', '2016-05-26 00:38:59', '2016-06-05 12:13:48.650440', '2016-06-05 12:13:48.650440')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 01:12:01', '2016-06-05 12:13:48.867461', '2016-06-05 12:13:48.867461')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 00:13:58', '2016-06-05 12:13:49.009998', '2016-06-05 12:13:49.009998')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 00:31:45.000000', '2016-05-29 02:01:45', '2016-06-05 12:13:49.169573', '2016-06-05 12:13:49.169573')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 06:47:58.000000', '2016-05-29 08:17:58', '2016-06-05 12:13:49.321007', '2016-06-05 12:13:49.321007')
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.9ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 07:20:11', NULL, '2016-06-05 12:13:49.482645', '2016-06-05 12:13:49.482645')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 07:48:55', NULL, '2016-06-05 12:13:49.631494', '2016-06-05 12:13:49.631494')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-28 08:52:58', NULL, '2016-06-05 12:13:49.792148', '2016-06-05 12:13:49.792148')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 08:17:55', NULL, '2016-06-05 12:13:49.935160', '2016-06-05 12:13:49.935160')[0m
+Rendered processed_data/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 1498ms (Views: 23.9ms | ActiveRecord: 4.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/rynnon/workspace-ruby/sleepdata/config/environment.rb:5)
+  [1m[36mRawDatum Load (0.9ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('aufgestanden
+', '2016-05-29 11:30:15', NULL, '2016-06-05 12:21:40.777852', '2016-06-05 12:21:40.777852')[0m
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 14:22:09 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mRawDatum Load (0.8ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.5ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 23:08:59.000000', '2016-05-26 00:38:59', '2016-06-05 12:22:09.464905', '2016-06-05 12:22:09.464905')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 01:12:01', '2016-06-05 12:22:09.641040', '2016-06-05 12:22:09.641040')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 00:13:58', '2016-06-05 12:22:09.800040', '2016-06-05 12:22:09.800040')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 00:31:45.000000', '2016-05-29 02:01:45', '2016-06-05 12:22:09.959552', '2016-06-05 12:22:09.959552')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 06:47:58.000000', '2016-05-29 08:17:58', '2016-06-05 12:22:10.112265', '2016-06-05 12:22:10.112265')
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.8ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 07:20:11', NULL, '2016-06-05 12:22:10.240747', '2016-06-05 12:22:10.240747')
+Completed 500 Internal Server Error in 980ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/models/raw_datum.rb:39:in `block in process_raw_data'
+  app/models/raw_datum.rb:29:in `process_raw_data'
+  app/controllers/processed_data_controller.rb:7:in `index'
+
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.2ms)
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.7ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 14:22:50 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[36mRawDatum Load (0.8ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mRawDatum Load (0.8ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 23:08:59.000000', '2016-05-26 00:38:59', '2016-06-05 12:22:50.270483', '2016-06-05 12:22:50.270483')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 01:12:01', '2016-06-05 12:22:50.473119', '2016-06-05 12:22:50.473119')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 00:13:58', '2016-06-05 12:22:50.633428', '2016-06-05 12:22:50.633428')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 00:31:45.000000', '2016-05-29 02:01:45', '2016-06-05 12:22:50.776647', '2016-06-05 12:22:50.776647')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 06:47:58.000000', '2016-05-29 08:17:58', '2016-06-05 12:22:50.919562', '2016-06-05 12:22:50.919562')[0m
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mRawDatum Load (0.8ms)[0m  SELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 07:20:11', NULL, '2016-06-05 12:22:51.075901', '2016-06-05 12:22:51.075901')[0m
+Completed 500 Internal Server Error in 1020ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/models/raw_datum.rb:40:in `block in process_raw_data'
+  app/models/raw_datum.rb:30:in `process_raw_data'
+  app/controllers/processed_data_controller.rb:7:in `index'
+
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /home/rynnon/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.0.20/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.2ms)
+
+
+Started GET "/processed_data" for 127.0.0.1 at 2016-06-05 14:24:34 +0200
+  Processing by ProcessedDataController#index as HTML
+  [1m[35mRawDatum Load (0.8ms)[0m  SELECT "raw_data".* FROM "raw_data" ORDER BY raw_data.timestamp DESC LIMIT 1
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.5ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-25 23:08:59.000000', '2016-05-26 00:38:59', '2016-06-05 12:24:35.001621', '2016-06-05 12:24:35.001621')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-26 23:42:01.000000', '2016-05-27 01:12:01', '2016-06-05 12:24:35.225343', '2016-06-05 12:24:35.225343')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-27 22:43:58.000000', '2016-05-28 00:13:58', '2016-06-05 12:24:35.392788', '2016-06-05 12:24:35.392788')
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 00:31:45.000000', '2016-05-29 02:01:45', '2016-06-05 12:24:35.543985', '2016-06-05 12:24:35.543985')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('sleep', '2016-05-29 06:47:58.000000', '2016-05-29 08:17:58', '2016-06-05 12:24:35.713345', '2016-06-05 12:24:35.713345')
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[36mRawDatum Load (0.9ms)[0m  [1mSELECT "raw_data".* FROM "raw_data" WHERE ("raw_data"."id" >= 140) ORDER BY "raw_data"."id" ASC LIMIT 30[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-26 07:20:11', NULL, '2016-06-05 12:24:35.874921', '2016-06-05 12:24:35.874921')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-27 07:48:55', NULL, '2016-06-05 12:24:36.031698', '2016-06-05 12:24:36.031698')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-28 08:52:58', NULL, '2016-06-05 12:24:36.191167', '2016-06-05 12:24:36.191167')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "processed_data" ("period_label", "begin", "end", "created_at", "updated_at") VALUES ('laying awake', '2016-05-29 08:17:55', NULL, '2016-06-05 12:24:36.334045', '2016-06-05 12:24:36.334045')[0m
+Rendered processed_data/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 1513ms (Views: 16.5ms | ActiveRecord: 4.9ms)
