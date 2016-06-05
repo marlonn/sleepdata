@@ -16,10 +16,10 @@
   <tr>
     <td><%= processed_datum.period_label %></td>
     <td> | <%= processed_datum.id %></td>
-    <td> | <%= processed_datum.begin.to_s[0,16] %></td>
-    <td> | <%= processed_datum.end.to_s[0,16] %></td>
+    <td> | <%= processed_datum.begin[0,16] %></td>
+    <td> | <%= processed_datum.end[0,16] %></td>
     <td> | <%= number_with_precision(
-                (processed_datum.duration_in_minutes / 60).to_s,
+                processed_datum.duration_in_minutes / 60,
                 precision: 2)
             %> hours</td>
     <td> | <%= link_to 'Show', processed_datum %></td>
