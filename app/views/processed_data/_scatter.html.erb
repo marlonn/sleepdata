@@ -1,4 +1,5 @@
-<div id="chart" style="width:600px;height:400px;"></div>
+<br />
+<div id="chart" style="width:600px;height:500px;"></div>
 <script src="js/flotr2.min.js"></script>
 
 <% javascript_tag do %>
@@ -15,32 +16,35 @@
     [6, "saturday"],
   ];
 
-  var aufgewacht = [
+  var hours = [
     <% @raw.each do |raw| %>
-    [<% if raw.status.chomp == "aufgewacht" %>
+    [<% if raw.status.chomp == @status %>
         <%= Time.parse(raw.timestamp).wday  %>,
         <%= raw.timestamp[11,2].to_i + (raw.timestamp[14,2].to_i / 60.0) %>
       <% end %>],
     <% end %>
   ];
 
-  var  aufgestanden = [
-    <% @raw.each do |raw| %>
-    [<% if raw.status.chomp == "aufgestanden" %>
-        <%= Time.parse(raw.timestamp).wday  %>,
-        <%= raw.timestamp[11,2].to_i + (raw.timestamp[14,2].to_i / 60.0) %>
-      <% end %>],
-    <% end %>
-  ];
+  var sieben = [
+    [-0.5,7.0],
+    [6.5, 7.0],
+  ]
+
+  var acht = [
+    [-0.5,8.0],
+    [6.5, 8.0],
+  ]
 
   Flotr.draw(
       document.getElementById("chart")
       ,[
-          { data: aufgewacht,  label: "aufgewacht", points: {show:true} },
-          { data: aufgestanden,  label: "aufgestanden", points: {show:true} },
+          { data: hours,  label: "<%= @status %>", points: {show:true} },
+          { data: sieben, label: "7:00", lines: {show:true, lineWidth: 1}, shadowSize: 0, color: "#545454" },
+          { data: acht, label: "8:00", lines: {show:true, lineWidth: 1.5}, shadowSize: 0, color: "#88DD00" },
+
       ]
       ,{
-          title: "time woken up by weekday",
+          title: "weekday",
           // subtitle: "(by Country, 2010 OECD data)",
           xaxis: { min: -0.5, max: 6.5, tickDecimals: 0, ticks: weekdays },
           yaxis: {min: 0.5, max: 24, tickDecimals: 0, title: "hour"},

@@ -1,7 +1,8 @@
 <div class="rect">
   <%= form_tag processed_data_path, :method => 'get' do %>
-    Tell me how to present the data:  
-    <%= text_field_tag :mode, params[:mode], :placeholder => "table" %>
+    Which data to represent, and how:
+    <%= text_field_tag :status, params[:status], :placeholder => "(RawDatum.status)" %>
+    <%= text_field_tag :mode, params[:mode], :placeholder => "scatter" %>
     <%= submit_tag "go" %>
   <% end %>
 </div>

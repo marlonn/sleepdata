@@ -5,8 +5,10 @@ class ProcessedDataController < ApplicationController
   def index
     #@data = ProcessedDatum.all
     # @data = RawDatum.process_raw_data
-    @mode = params[:mode]
-    @raw = RawDatum.all
+    @mode   = params[:mode]
+    @status = params[:status]
+    @raw    = RawDatum.all
+
     if ProcessedDatum.count == 0
       RawDatum.process_raw_data
       @data = ProcessedDatum.all
@@ -18,6 +20,7 @@ class ProcessedDataController < ApplicationController
         @data = ProcessedDatum.all
       end
     end
+
   end
 
   def show
