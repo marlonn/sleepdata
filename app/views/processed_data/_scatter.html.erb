@@ -15,11 +15,20 @@
     [6, "saturday"],
   ];
 
-  var hour = [
+  var aufgewacht = [
     <% @raw.each do |raw| %>
     [<% if raw.status.chomp == "aufgewacht" %>
-        <%= Time.parse(raw.timestamp).wday  %>,  //vielleicht braucht man
-        <%= raw.timestamp[11,2] %>              // .to_json nicht
+        <%= Time.parse(raw.timestamp).wday  %>,
+        <%= raw.timestamp[11,2].to_i + (raw.timestamp[14,2].to_i / 60.0) %>
+      <% end %>],
+    <% end %>
+  ];
+
+  var  aufgestanden = [
+    <% @raw.each do |raw| %>
+    [<% if raw.status.chomp == "aufgestanden" %>
+        <%= Time.parse(raw.timestamp).wday  %>,
+        <%= raw.timestamp[11,2].to_i + (raw.timestamp[14,2].to_i / 60.0) %>
       <% end %>],
     <% end %>
   ];
@@ -27,14 +36,15 @@
   Flotr.draw(
       document.getElementById("chart")
       ,[
-          { data: hour,  label: "hour", points: {show:true} },
+          { data: aufgewacht,  label: "aufgewacht", points: {show:true} },
+          { data: aufgestanden,  label: "aufgestanden", points: {show:true} },
       ]
       ,{
           title: "time woken up by weekday",
           // subtitle: "(by Country, 2010 OECD data)",
-          xaxis: { min: 0, max: 6, tickDecimals: 0, ticks: weekdays },
-          yaxis: {min: 0, max: 24, tickDecimals: 0, title: "hour"},
-          //legend: {position: "ne"},
+          xaxis: { min: -0.5, max: 6.5, tickDecimals: 0, ticks: weekdays },
+          yaxis: {min: 0.5, max: 24, tickDecimals: 0, title: "hour"},
+          legend: {position: "ne"},
       }
   );
 
