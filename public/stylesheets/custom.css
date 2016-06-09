@@ -1,6 +1,49 @@
+
+body {
+  width: 100%;
+}
+
+/*header*/
+
+#nav-custom {
+width: 36em;
+/*border: solid red;*/
+height: 2em;
+}
+
+#nav-custom li {
+  list-style-type: none;
+  display: inline-block;
+  /*width: 12em;
+  height: 2em;*/
+  /*background-color: #d00;*/
+}
+
+#nav-custom li a {
+  text-decoration: none;
+  padding: 1em;
+  color: black;
+  font-size: 1.2em;
+}
+
+#nav-custom li a:hover {
+  color: blue;
+}
+
+#n
+
+.clear {
+  float: clear;
+  height: 1px;
+}
+
 .rect {
   background-color: #289;
   color: #FFF;
   padding: 0.5em;
   margin:0;
+}
+
+table {
+  width: auto;
 }
