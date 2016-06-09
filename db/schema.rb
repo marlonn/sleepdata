@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160603154016) do
+ActiveRecord::Schema.define(:version => 20160609163949) do
+
+  create_table "holidays", :force => true do |t|
+    t.string   "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "processed_data", :force => true do |t|
     t.string   "period_label"

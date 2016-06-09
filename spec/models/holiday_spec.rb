@@ -1,17 +1,16 @@
 require 'spec_helper'
 
-describe RawDatum do
+describe Holiday do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
 
 # == Schema Information
 #
-# Table name: raw_data
+# Table name: holidays
 #
 #  id         :integer         not null, primary key
-#  timestamp  :text
-#  status     :string(255)
+#  date       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
