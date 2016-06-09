@@ -1,5 +1,5 @@
 <br />
-<div id="chart" style="width:600px;height:500px;"></div>
+<div id="chart" style="width:700px;height:600px;"></div>
 <script src="js/flotr2.min.js"></script>
 
 <% javascript_tag do %>
@@ -14,12 +14,17 @@
     [4, "thursday"],
     [5, "friday"],
     [6, "saturday"],
+    [7, "holiday"],
   ];
 
   var hours = [
     <% @raw.each do |raw| %>
-    [<% if raw.status.chomp == @status %>
-        <%= Time.parse(raw.timestamp).wday  %>,
+      [<% if raw.status.chomp == @status %>
+        <% if Holiday.holiday?(raw.timestamp) %>
+          7,
+        <% else %>
+          <%= Time.parse(raw.timestamp).wday %>,
+        <% end %>
         <%= raw.timestamp[11,2].to_i + (raw.timestamp[14,2].to_i / 60.0) %>
       <% end %>],
     <% end %>
@@ -27,12 +32,12 @@
 
   var sieben = [
     [-0.5,7.0],
-    [6.5, 7.0],
+    [8.5, 7.0],
   ]
 
   var acht = [
     [-0.5,8.0],
-    [6.5, 8.0],
+    [8.5, 8.0],
   ]
 
   Flotr.draw(
@@ -46,7 +51,7 @@
       ,{
           title: "weekday",
           // subtitle: "(by Country, 2010 OECD data)",
-          xaxis: { min: -0.5, max: 6.5, tickDecimals: 0, ticks: weekdays },
+          xaxis: { min: -0.5, max: 7.5, tickDecimals: 0, ticks: weekdays },
           yaxis: {min: 0.5, max: 24, tickDecimals: 0, title: "hour"},
           legend: {position: "ne"},
       }

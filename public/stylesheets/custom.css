@@ -1,7 +1,7 @@
 
 body {
   width: 100%;
-  background-color: #ededed;
+  background-color: white;
 }
 
 /*header*/
@@ -30,8 +30,6 @@ height: 2em;
 #nav-custom li a:hover {
   color: blue;
 }
-
-#n
 
 .clear {
   float: clear;

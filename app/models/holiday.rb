@@ -2,6 +2,15 @@ class Holiday < ActiveRecord::Base
 
   default_scope :order => 'date DESC'
 
+  def self.holiday?(timestamp) # expects Date-object
+    if Holiday.where(date: Date.parse(timestamp)).any?
+      true
+    else
+      false
+    end
+  end
+
+
 end
 
 
