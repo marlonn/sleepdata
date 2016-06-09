@@ -20,7 +20,7 @@
   var hours = [
     <% @raw.each do |raw| %>
       [<% if raw.status.chomp == @status %>
-        <% if Holiday.holiday?(raw.timestamp) %>
+        <% if raw.timestamp.holiday? %>
           7,
         <% else %>
           <%= Time.parse(raw.timestamp).wday %>,
