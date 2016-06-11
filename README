@@ -1,2 +1,50 @@
 This App allows the user to input data concering their sleeping habits
 and display said data using JavaScript.
+
+Developed on Ruby 1.9.3 and Rails 3.0.20.
+
+================================= done ========================================
+-rails-projekt mit datenbank anlegen
+	http://www.rubydoc.info/github/luislavena/sqlite3-ruby/SQLite3/Database
+	http://zetcode.com/db/sqliteruby/connect/
+-schlaf.txt in Array einlesen (substring[4,5], verschachteltes Array)
+-rohdaten in db speichern
+-Zeit-String in Zeit umwandeln
+-einschlafzeiten berechnen
+-db-tabelle "processed_data" zurücksetzen
+-abfragen, ob datenbank geändert werden muss, bevor process_raw_data ausgeführt
+wird
+ProcessedDatum erweitern: spalte für dauer, vllt wochentag
+schlafdauern pro tag berechnen: >
+  "einschlafzeit bis mitternacht oder bis aufwachen,
+  mitternacht bis aufwachen wenn letzter wert des letzten tages eine
+  einschlafzeit ist; N/A herausnehmen"
+-wachliegezeiten berechnen
+-daten visualisieren:
+streudiagramm:	>
+    aufwachzeiten (aufstehzeiten) nach wochentag,
+    einschlafzeiten nach wochentag
+- spalte für ferientag
+- css mit sass implementieren
+-----
+to do:
+
+- model: >
+    spalte für "krankgeschrieben" (neues model und neuen controller?)
+	  in scatter diagram ferientag und krankgeschrieben als "wochentage" eintragen
+- daten visualisieren:
+  scatter diagram: schlafdauer PRO TAG
+  stacked bars: schlafzeit, wachzeit, wachliegezeit
+  balkendiagramm: >
+    schlafperioden (x-achse datum, y-achse uhrzeit), mit  schlafdauer als zahl
+    im balken notiert
+  -druckversion erstellen
+refactoring:
+  process_raw_data und rake db:import_schlafdaten: >
+    "mit benchmark testen vorher funktionstests schreiben!"
+  holiday?-methode: >
+    ober-klasse für alle models erstellen (z.b. "ArchModel") und dort
+    "holiday?" definieren.
+  js/erb: funktioniert js-code auch mit <script>-tag?
+
+===============================================================================
