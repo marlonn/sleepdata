@@ -15,7 +15,7 @@ class RawDatum < ActiveRecord::Base
     data = []
     id = 0
     can_edit = false
-    RawDatum.find_each(start: 130) do |raw|
+    RawDatum.find_each(start: 0) do |raw|
       if raw.status.chomp == "ins Bett gelegt"
         data[id]     = ProcessedDatum.new(period_label: "laying awake",
                                 begin: Time.parse(raw.timestamp).to_s,

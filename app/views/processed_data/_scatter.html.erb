@@ -18,15 +18,28 @@
   ];
 
   var hours = [
-    <% @raw.each do |raw| %>
-      [<% if raw.status.chomp == @status %>
-        <% if raw.timestamp.holiday? %>
+    <% if "duration" == @status %>
+      <% @data.each do |datum| %>
+       [<% if datum.begin.holiday? %>
           7,
         <% else %>
-          <%= Time.parse(raw.timestamp).wday %>,
+          <%= Time.parse(datum.begin).wday %>,
         <% end %>
-        <%= raw.timestamp[11,2].to_i + (raw.timestamp[14,2].to_i / 60.0) %>
-      <% end %>],
+        <%= number_with_precision(
+                        datum.duration_in_minutes / 60,
+                        precision: 2) %>],
+      <% end %>
+    <% else %>
+      <% @raw.each do |raw| %>
+        [<% if raw.status.chomp == @status %>
+          <% if raw.timestamp.holiday? %>
+            7,
+          <% else %>
+            <%= Time.parse(raw.timestamp).wday %>,
+          <% end %>
+          <%= raw.timestamp[11,2].to_i + (raw.timestamp[14,2].to_i / 60.0) %>
+          <% end %>],
+      <% end %>
     <% end %>
   ];
 

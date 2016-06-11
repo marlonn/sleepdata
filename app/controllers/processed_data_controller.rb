@@ -1,25 +1,24 @@
+# endcoding: utf-8
+
 class ProcessedDataController < ApplicationController
   include ActionView::Helpers::NumberHelper
   require "json"
 
   def index
     #@data = ProcessedDatum.all
-    # @data = RawDatum.process_raw_data
+    #@data = RawDatum.process_raw_data
     @mode   = params[:mode]
     @status = params[:status]
     @raw    = RawDatum.all
 
     if ProcessedDatum.count == 0
       RawDatum.process_raw_data
-      @data = ProcessedDatum.all
     elsif ProcessedDatum.count != 0
       if Time.parse(ProcessedDatum.first.begin) < (Time.parse(RawDatum.first.timestamp) - 1.day)
         RawDatum.process_raw_data
-        @data = ProcessedDatum.all
-      else
-        @data = ProcessedDatum.all
       end
     end
+    @data = ProcessedDatum.all
 
   end
 
@@ -82,4 +81,5 @@ class ProcessedDataController < ApplicationController
       format.xml  { head :ok }
     end
   end
-end
+
+end # of class
