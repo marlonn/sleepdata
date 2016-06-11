@@ -29,9 +29,10 @@ streudiagramm:	>
 -----
 to do:
 
-- model: >
-    spalte für "krankgeschrieben" (neues model und neuen controller?)
-	  in scatter diagram ferientag und krankgeschrieben als "wochentage" eintragen
+model: ArchModel.sleep_duration_per_day
+model:
+    - spalte für "krankgeschrieben" (neues model und neuen controller?)
+	  - in scatter diagram krankgeschrieben als "wochentage" eintragen
 - daten visualisieren:
   scatter diagram: schlafdauer PRO TAG
   stacked bars: schlafzeit, wachzeit, wachliegezeit
@@ -39,6 +40,7 @@ to do:
     schlafperioden (x-achse datum, y-achse uhrzeit), mit  schlafdauer als zahl
     im balken notiert
   -druckversion erstellen
+model: users
 refactoring:
   process_raw_data und rake db:import_schlafdaten: >
     "mit benchmark testen vorher funktionstests schreiben!"

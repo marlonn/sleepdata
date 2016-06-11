@@ -19,7 +19,6 @@ class ProcessedDataController < ApplicationController
       end
     end
     @data = ProcessedDatum.all
-
   end
 
   def show
