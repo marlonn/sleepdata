@@ -25,6 +25,7 @@ class RawDataController < ApplicationController
   # GET /raw_data/new.xml
   def new
     @raw_datum = RawDatum.new
+    @raw_data = RawDatum.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +41,13 @@ class RawDataController < ApplicationController
   # POST /raw_data
   # POST /raw_data.xml
   def create
+    @raw_data = RawDatum.all
     @raw_datum = RawDatum.new(params[:raw_datum])
 
     respond_to do |format|
       if @raw_datum.save
-        format.html { redirect_to(@raw_datum, :notice => 'Raw datum was successfully created.') }
+        #format.html { render :action => "new", :notice => 'Raw datum was successfully created.' }
+        format.html { redirect_to action: 'new' }
         format.xml  { render :xml => @raw_datum, :status => :created, :location => @raw_datum }
       else
         format.html { render :action => "new" }

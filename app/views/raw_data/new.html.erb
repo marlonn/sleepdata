@@ -2,4 +2,14 @@
 
 <%= render 'form' %>
 
+
+<br /><p>Latest entries: <br/>
+    <%= @raw_data[0].status %>
+    <%= @raw_data[0].timestamp %><br />
+    <%= @raw_data[1].status %>
+    <%= @raw_data[1].timestamp %><br />
+    <%= @raw_data[2].status %>
+    <%= @raw_data[2].timestamp %><br />
+</p>
+
 <%= link_to 'Back', raw_data_path %>

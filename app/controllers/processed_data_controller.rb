@@ -5,20 +5,23 @@ class ProcessedDataController < ApplicationController
   require "json"
 
   def index
-    #@data = ProcessedDatum.all
+    @data = ProcessedDatum.all
     #@data = RawDatum.process_raw_data
     @mode   = params[:mode]
     @status = params[:status]
     @raw    = RawDatum.all
 
-    if ProcessedDatum.count == 0
-      RawDatum.process_raw_data
-    elsif ProcessedDatum.count != 0
-      if Time.parse(ProcessedDatum.first.begin) < (Time.parse(RawDatum.first.timestamp) - 1.day)
-        RawDatum.process_raw_data
-      end
-    end
-    @data = ProcessedDatum.all
+    # the following code only works correctly if process_raw_data
+    # can either wipe the table before inserting new values, or
+    # only insert new values.
+    # if ProcessedDatum.count == 0
+    #   RawDatum.process_raw_data
+    # elsif ProcessedDatum.count != 0
+    #   if Time.parse(ProcessedDatum.first.begin) < (Time.parse(RawDatum.first.timestamp) - 1.day)
+    #     RawDatum.process_raw_data
+    #   end
+    # end
+    #@data = ProcessedDatum.all
   end
 
   def show

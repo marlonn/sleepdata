@@ -1,25 +1,29 @@
-<%= form_for(@raw_datum) do |f| %>
-  <% if @raw_datum.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@raw_datum.errors.count, "error") %> prohibited this raw_datum from being saved:</h2>
+<% statuses = ["aufgewacht", "aufgestanden", "noch wach", %>
+            <% "ins Bett gelegt", "Zopliclon"] %>
 
-      <ul>
-      <% @raw_datum.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<% statuses.each do |status| %>
+
+  <%= form_for(@raw_datum) do |f| %>
+    <% if @raw_datum.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@raw_datum.errors.count, "error") %>
+           prohibited this raw_datum from being saved:</h2>
+
+        <ul>
+        <% @raw_datum.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.hidden_field :timestamp, :value => Time.now.to_s[0,16] %>
+      <%= f.hidden_field :status, :value => status %>
+    </div>
+    <div class="actions">
+      <%= f.submit :value => status %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :timestamp %><br />
-    <%= f.text_area :timestamp %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
