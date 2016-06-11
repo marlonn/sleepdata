@@ -1,0 +1,51 @@
+// currently, I implement sass by issuing the following command:
+// ~/workspace-ruby/sleepdata/public/stylesheets$ sass --watch custom.css.sass:custom.css
+
+// colors
+
+$body_backg_c:  #eef
+$nav_a_c:       black
+$nav_ahover_c:  blue
+$rect_backg_c:  #289
+$rect_c:        #fff
+
+
+body
+  width: 100%
+  background-color: $body_backg_c
+
+/*header*/
+
+#nav-custom
+  width: 36em
+  /*border: solid red;*/
+  height: 2em
+
+#nav-custom li
+  list-style-type: none
+  display: inline-block
+  /*width: 12em;
+  height: 2em
+  /*background-color: #d00;*/
+
+#nav-custom li a
+  text-decoration: none
+  padding: 1em
+  color: $nav_a_c
+  font-size: 1.2em
+
+#nav-custom li a:hover
+  color: $nav_ahover_c
+
+.clear
+  float: clear
+  height: 1px
+
+.rect
+  background-color: $rect_backg_c
+  color: $rect_c
+  padding: 0.5em
+  margin: 0
+
+table
+  width: auto
