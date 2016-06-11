@@ -1,11 +1,14 @@
+html {
+  width: 100%;
+  max-width: 900px; }
+
 body {
   width: 100%;
-  background-color: #eef; }
+  background-color: #eef;
+  margin: auto; }
 
 /*header */
 #nav-custom {
-  width: 36em;
-  /*border: solid red; */
   height: 2em; }
 
 #nav-custom li {

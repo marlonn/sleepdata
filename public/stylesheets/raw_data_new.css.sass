@@ -1,0 +1,163 @@
+
+/* Eric Meyer's CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section
+  display: block
+
+body
+  line-height: 1
+
+ol, ul
+  list-style: none
+
+blockquote, q
+  quotes: none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+  content: ''
+  content: none
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+
+/* End of Eric Meyer's CSS Reset */
+
+$body_backg_c: #020011
+$body_link_c: #dce616
+$font_c: white
+$hr_c: white
+$schlaf_backg_c: #1f4661
+$button_font_c: yellow
+
+body
+  background-color: $body_backg_c
+  color: $font_c
+  font-family: sans-serif
+  font-weight: 400
+  font-size: 1em
+  // min-width: 500px
+  // max-width: 700px
+
+section.round
+  max-width: 500px
+  margin: 0
+  padding: 0
+
+div.container
+  max-width: 500px
+
+pre.debug_dump
+  width: 100%
+
+body > #inhalt
+  background-color: $body_backg_c
+  margin-top: 0px
+  min-height:  710px
+  margin: auto
+  width: 600px
+
+p
+  padding-top: 2px
+  padding-bottom: 3px
+
+h4
+  font-size: 20px
+  text-align: center
+
+.clearfix:after
+  content: "O"
+  display: block
+  clear: both
+  height: 0
+  visibility: hidden
+
+a
+  color: $body_link_c
+
+hr
+  color: $hr_c
+
+h1
+  color: $font_c
+  font-size: 1.5em
+  font-weight: 500
+
+// schlaf
+#schlaf
+  background-color: $schlaf_backg_c
+  width: 90%
+  //19%, wenn es ganz links anschließen soll
+  min-width: 300px
+  max-width: 400px
+  padding: 5px
+  min-height: 560px
+  margin-top: 1.7%
+  margin-left: auto
+  margin-right: auto
+  position: relative
+
+#schlafbuttons
+  width: 100%
+  padding-left: auto
+  padding-right: auto
+  margin: 1%
+
+#schlaf input[type=submit]
+  float: left
+  /*margin: auto;*/
+  font-size: 20px
+  margin: 1%
+  width: 48%
+  height: 100px
+  background-color: $body_backg_c
+  border: 0px solid white
+  color: $button_font_c
+  //font-family: 'Source Code Pro'
+  font-weight: 500
+
+#schlaf input[type=submit]:hover
+  background-color:  #22212C
+  margin: 6px 3px 6px 3px
+
+#schlaf table, th, td
+  border: 2px solid grey
+  padding: 4px
+  background-color: $schlaf_backg_c
+
+#schlaf tbody tr:nth-child(2n) td, tbody tr.even td
+  background-color: $schlaf_backg_c
+
+#schlaf table
+  margin-left: auto
+  margin-right: auto
+  width: 330px
+
+#schlaf th
+  font-weight: bold
+
+#schlaf hr
+  background-color: $schlaf_backg_c
