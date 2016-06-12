@@ -9,14 +9,13 @@ body {
 
 /*header */
 #nav-custom {
-  height: 2em; }
+  height: 2em;
+  background-color: #ffd; }
 
 #nav-custom li {
   list-style-type: none;
   display: inline-block;
-  /*width: 12em; */
-  height: 2em;
-  /*background-color: #d00; */ }
+  height: 2em; }
 
 #nav-custom li a {
   text-decoration: none;

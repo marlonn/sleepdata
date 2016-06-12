@@ -26,13 +26,14 @@ streudiagramm:	>
     einschlafzeiten nach wochentag
 - spalte für ferientag
 - css mit sass implementieren
+- /raw_data/new gestylt
 -----
 to do:
 
 model: ArchModel.sleep_duration_per_day
 model:
     - spalte für "krankgeschrieben" (neues model und neuen controller?)
-	  - in scatter diagram krankgeschrieben als "wochentage" eintragen
+    - in scatter diagram krankgeschrieben als "wochentage" eintragen
 - daten visualisieren:
   scatter diagram: schlafdauer PRO TAG
   stacked bars: schlafzeit, wachzeit, wachliegezeit
@@ -48,5 +49,7 @@ refactoring:
     ober-klasse für alle models erstellen (z.b. "ArchModel") und dort
     "holiday?" definieren.
   js/erb: funktioniert js-code auch mit <script>-tag?
+- rails auf debian installieren
+- nginx/apache für rails auf debian installieren
 
 ===============================================================================

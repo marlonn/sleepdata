@@ -6,6 +6,7 @@
 $body_backg_c:  #eef
 $nav_a_c:       black
 $nav_ahover_c:  blue
+$nav_backg_c:   #ffd
 $rect_backg_c:  #289
 $rect_c:        #fff
 
@@ -22,13 +23,12 @@ body
 
 #nav-custom
   height: 2em
+  background-color: $nav_backg_c
 
 #nav-custom li
   list-style-type: none
   display: inline-block
-  /*width: 12em;
   height: 2em
-  /*background-color: #d00;*/
 
 #nav-custom li a
   text-decoration: none
@@ -43,6 +43,7 @@ body
   float: clear
   height: 1px
 
+//the form on /processed_data
 .rect
   background-color: $rect_backg_c
   color: $rect_c
